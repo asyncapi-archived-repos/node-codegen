@@ -1,0 +1,13 @@
+test:
+  override:
+    - echo "No tests..."
+
+machine:
+  node:
+    version: 7
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./scripts/deploy.sh
