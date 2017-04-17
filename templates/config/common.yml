@@ -1,0 +1,41 @@
+default:
+  broker:
+{{#each asyncapi.schemes as |scheme|}}
+  {{#compare scheme '===' 'amqp'}}
+    amqp:
+      exchange:
+      username:
+      password:
+      host: localhost
+      port:
+      topic: {{../../asyncapi.__commonTopic}}
+  {{/compare}}
+  {{#compare scheme '===' 'mqtt'}}
+    mqtt:
+      host_url: mqtt://localhost
+      topics: {{toMQTT ../../asyncapi.__commonTopic}}
+      qos:
+      protocol: mqtt
+      retain:
+  {{/compare}}
+{{/each}}
+
+
+development:
+
+test:
+
+staging:
+
+production:
+  broker:
+{{#each asyncapi.schemes as |scheme|}}
+  {{#compare scheme '===' 'amqp'}}
+    amqp:
+      host: {{asyncapi.host}}
+  {{/compare}}
+  {{#compare scheme '===' 'mqtt'}}
+    mqtt:
+      host_url: mqtt://{{asyncapi.host}}
+  {{/compare}}
+{{/each}}
