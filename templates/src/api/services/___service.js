@@ -10,7 +10,7 @@ const {{service}} = module.exports = {};
  */
     {{/if}}
 {{topic.serviceName}}.{{topic.publish.operationId}} = async ({message}) => {
-  // Implement you business logic here...
+  // Implement your business logic here...
 };
 
   {{/if}}
@@ -23,7 +23,7 @@ const {{service}} = module.exports = {};
  */
     {{/if}}
 {{topic.serviceName}}.{{topic.subscribe.operationId}} = async ({message}) => {
-  // Implement you business logic here...
+  // Implement your business logic here...
 };
 
   {{/if}}

@@ -9,7 +9,9 @@ const adapter = hermesAMQP({
   host: config.broker.amqp.host,
   port: config.broker.amqp.port,
   topic: config.broker.amqp.topic,
-  subscribe: false
+  queue: config.broker.amqp.queue,
+  queue_options: config.broker.amqp.queue_options,
+  subscribe: {{shouldSubscribe ../asyncapi}} // ATTENTION: If subscribe is true you might receive the messages you send.
 });
 {{/compare}}
 {{#compare adapter '===' 'mqtt' }}
@@ -21,7 +23,7 @@ const adapter = hermesMQTT({
   qos: config.broker.mqtt.qos,
   protocol: config.broker.mqtt.protocol,
   retain: config.broker.mqtt.retain,
-  subscribe: false
+  subscribe: {{shouldSubscribe ../asyncapi}} // ATTENTION: If subscribe is true you might receive the messages you send.
 });
 {{/compare}}
 

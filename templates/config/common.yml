@@ -9,6 +9,11 @@ default:
       host: localhost
       port:
       topic: {{../../asyncapi.__commonTopic}}
+      queue: {{queueName ../../asyncapi.info.title ../../asyncapi.info.version}}
+      queue_options:
+        exclusive: false
+        durable: true
+        autoDelete: true
   {{/compare}}
   {{#compare scheme '===' 'mqtt'}}
     mqtt:
@@ -32,10 +37,10 @@ production:
 {{#each asyncapi.schemes as |scheme|}}
   {{#compare scheme '===' 'amqp'}}
     amqp:
-      host: {{asyncapi.host}}
+      host: {{../../asyncapi.host}}
   {{/compare}}
   {{#compare scheme '===' 'mqtt'}}
     mqtt:
-      host_url: mqtt://{{asyncapi.host}}
+      host_url: mqtt://{{../../asyncapi.host}}
   {{/compare}}
 {{/each}}

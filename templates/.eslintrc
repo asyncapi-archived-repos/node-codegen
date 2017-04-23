@@ -1,5 +1,8 @@
 extends: 'eslint:recommended'
 
+parserOptions:
+  ecmaVersion: 8
+
 env:
   node: true
   es6: true
@@ -46,8 +49,7 @@ rules:
   consistent-this: [0, self]
   func-style: 0
   max-nested-callbacks: 0
-  new-cap: [2, {capIsNewExceptions: [JID]}]
-  no-inline-comments: 2
+  new-cap: 2
   no-multiple-empty-lines: [2, {max: 1}]
   no-nested-ternary: 2
   semi-spacing: [2, {before: false, after: true}]
