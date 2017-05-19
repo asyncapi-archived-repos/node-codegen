@@ -28,11 +28,11 @@
   },
   "homepage": "https://github.com/asyncapi/node-codegen",
   "dependencies": {
+    "asyncapi": "1.0.0-rc2",
     "asyncapi-topic-parser": "^0.2.0",
     "handlebars": "^4.0.6",
     "js-yaml": "^3.8.3",
     "json-schema-ref-parser": "^3.1.2",
-    "load-json-file": "^2.0.0",
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "word-wrap": "^1.2.1",

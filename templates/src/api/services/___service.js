@@ -12,11 +12,11 @@ const {{service}} = module.exports = {};
  * @param {Object} options
  * @param {Object} options.message
  {{#if topic.publish.headers}}
- {{#each topic.publish.headers as |field fieldName|}}
+ {{#each topic.publish.headers.properties as |field fieldName|}}
 {{{docline field fieldName 'options.message.headers'}}}
  {{/each}}
  {{/if}}
- {{#each topic.publish.payload as |field fieldName|}}
+ {{#each topic.publish.payload.properties as |field fieldName|}}
 {{{docline field fieldName 'options.message.payload'}}}
  {{/each}}
  */
