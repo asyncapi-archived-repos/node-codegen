@@ -10,7 +10,7 @@ const {{service}} = require('../services/{{service}}');
  {{/each}}
  */
     {{/if}}
-router.use('{{topicName}}', async (message, next) => {
+router.use('{{dotsToSlashes topicName}}', async (message, next) => {
   await {{topic.serviceName}}.{{topic.publish.operationId}}({message});
   next();
 });
@@ -24,7 +24,7 @@ router.use('{{topicName}}', async (message, next) => {
  {{/each}}
  */
     {{/if}}
-router.use('{{topicName}}', async (message, next) => {
+router.use('{{dotsToSlashes topicName}}', async (message, next) => {
   await {{topic.serviceName}}.{{topic.subscribe.operationId}}({message});
   next();
 });
