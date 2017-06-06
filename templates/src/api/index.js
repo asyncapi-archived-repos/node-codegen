@@ -6,6 +6,9 @@ const logger = require('./middlewares/logger');
 {{#each asyncapi.schemes as |scheme|}}
 const {{capitalize scheme}}Adapter = require('./adapters/{{scheme}}');
 {{/each}}
+{{#each asyncapi.__services as |service|}}
+const {{service}} = require('./services/{{service}}.js');
+{{/each}}
 
 {{#each asyncapi.schemes as |scheme|}}
 hermes.add('broker', {{capitalize scheme}}Adapter);
@@ -17,6 +20,10 @@ hermes.on('broker:ready', ({name}) => {
 
 hermes.use(logger);
 hermes.from.client.use(json2string);
+
+{{#each asyncapi.__services as |service|}}
+hermes.use({{service}});
+{{/each}}
 
 hermes.use((err, message, next) => {
   console.error(err);
