@@ -7,7 +7,7 @@ const logger = require('./middlewares/logger');
 const {{capitalize scheme}}Adapter = require('./adapters/{{scheme}}');
 {{/each}}
 {{#each asyncapi.__services as |service|}}
-const {{service}} = require('./services/{{service}}.js');
+const {{service}} = require('./routes/{{service}}.js');
 {{/each}}
 
 {{#each asyncapi.schemes as |scheme|}}
