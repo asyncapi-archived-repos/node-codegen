@@ -35,10 +35,12 @@ const {{service}} = module.exports = {};
  {{/if}}
  * @param {Object} options
  * @param {Object} options.message
- {{#each topic.subscribe.headers as |field fieldName|}}
+ {{#if topic.subscribe.headers}}
+ {{#each topic.subscribe.headers.properties as |field fieldName|}}
 {{{docline field fieldName 'options.message.headers'}}}
  {{/each}}
- {{#each topic.subscribe.payload as |field fieldName|}}
+ {{/if}}
+ {{#each topic.subscribe.payload.properties as |field fieldName|}}
 {{{docline field fieldName 'options.message.payload'}}}
  {{/each}}
  */
