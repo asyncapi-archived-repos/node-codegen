@@ -1,6 +1,6 @@
 {
   "name": "asyncapi-node-codegen",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "An AsyncAPI codegen for Node.js",
   "scripts": {
     "test": "node tests/test"
