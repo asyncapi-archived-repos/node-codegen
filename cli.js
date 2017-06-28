@@ -29,7 +29,7 @@ console.log('Generating project at', outputPath, '...');
 mkdirp(outputPath, err => {
   if (err) return console.error(err);
 
-  generate(machineReadablePath, outputPath);
-
-  console.log('Done!');
+  generate(machineReadablePath, outputPath).then(() => {
+    console.log('Done!');
+  }).catch(err => console.error(err));
 });
