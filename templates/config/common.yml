@@ -1,6 +1,6 @@
 default:
   broker:
-{{#each asyncapi.schemes as |scheme|}}
+{{#each asyncapi.__schemes as |scheme|}}
   {{#compare scheme '===' 'amqp'}}
     amqp:
       exchange:
@@ -34,7 +34,7 @@ staging:
 
 production:
   broker:
-{{#each asyncapi.schemes as |scheme|}}
+{{#each asyncapi.__schemes as |scheme|}}
   {{#compare scheme '===' 'amqp'}}
     amqp:
       host: {{../../asyncapi.host}}
