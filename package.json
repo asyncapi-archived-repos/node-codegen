@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/asyncapi/node-codegen",
   "dependencies": {
-    "asyncapi": "1.0.0-rc2",
+    "asyncapi": "1.0.0",
     "asyncapi-topic-parser": "^0.2.0",
     "handlebars": "^4.0.6",
     "js-yaml": "^3.8.3",

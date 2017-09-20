@@ -1,6 +1,6 @@
 {
   "name": "{{snakecase asyncapi.info.title}}",
-  "description": "{{asyncapi.info.description}}",
+  "description": "{{asyncapi.__descriptionInOneLine}}",
   "version": "{{asyncapi.info.version}}",
   "scripts": {
     "start": "node src/api/index.js"
@@ -8,7 +8,7 @@
   "dependencies": {
     "hermesjs": "1.x",
     "hermesjs-router": "1.x",
-{{#each asyncapi.schemes as |scheme|}}
+{{#each asyncapi.__schemes as |scheme|}}
     "hermesjs-{{scheme}}": "latest",
 {{/each}}
     "node-yaml-config": "0.0.4"

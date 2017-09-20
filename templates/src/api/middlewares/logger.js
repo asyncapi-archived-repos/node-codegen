@@ -7,6 +7,6 @@ function yellow (text) {
 module.exports = (message, next) => {
   const action = message.from.broker ? 'received from' : 'sent to';
   console.log(`${yellow(message.topic)} was ${action} broker:`);
-  console.log(util.inspect(message.payload, { depth: null }));
+  console.log(util.inspect(message.payload, { depth: null, colors: true }));
   next();
 };
