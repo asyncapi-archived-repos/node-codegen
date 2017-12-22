@@ -78,6 +78,7 @@ The function `codegen.process` returns a Promise, so it means you can use async/
 ```js
 const path = require('path');
 const codegen = require('asyncapi-node-codegen');
+const asyncapi = '/path/to/asyncapi.yaml'; // Or a path to a JSON file
 
 try {
   await codegen.process(asyncapi, path.resolve(__dirname, './my-api'));
