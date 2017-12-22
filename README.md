@@ -13,7 +13,7 @@ The generated code features:
 * ES7
 * ESLint
 * YAML config file
-* Express
+* Hermes
 * No transpiling
 
 ## Install
