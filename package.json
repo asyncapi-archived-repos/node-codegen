@@ -30,6 +30,7 @@
   "dependencies": {
     "asyncapi": "1.0.0",
     "asyncapi-topic-parser": "^0.2.0",
+    "commander": "^2.12.2",
     "handlebars": "^4.0.6",
     "js-yaml": "^3.8.3",
     "json-schema-ref-parser": "^3.1.2",
