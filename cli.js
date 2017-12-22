@@ -1,35 +1,46 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
 const path = require('path');
+const program = require('commander');
 const mkdirp = require('mkdirp');
+const packageInfo = require('./package.json');
 const generate = require('./lib/codegen').process;
-const args = process.argv.slice(2);
 
-const showHelp = () => {
-  console.log(`
-Usage: asyncapi-node-codegen machineReadableFile outputPath
+const red = text => `\x1b[31m${text}\x1b[0m`;
+const magenta = text => `\x1b[35m${text}\x1b[0m`;
+const yellow = text => `\x1b[33m${text}\x1b[0m`;
+const green = text => `\x1b[32m${text}\x1b[0m`;
 
-machineReadableFile: It must point to a JSON or YAML file containing your AsyncAPI specification.
-outputPath: It must point to the directory in which you want your code to be generated.
-  `);
+let asyncAPIFile;
+
+const parseOutput = dir => path.resolve(dir);
+
+const showError = err => {
+  console.error(red('Something went wrong:'));
+  console.error(red(err.stack || err.message));
 };
 
-if (!args[0]) return showHelp();
-if (fs.exists(args[0]) && !fs.lstatSync(args[0]).isFile()) return showHelp();
-if (!args[1]) return showHelp();
-if (fs.exists(args[1]) && !fs.lstatSync(args[1]).isDirectory()) return showHelp();
+program
+  .version(packageInfo.version)
+  .arguments('<asyncAPI>')
+  .action((asyncAPIFilePath) => {
+    asyncAPIFile = path.resolve(asyncAPIFilePath);
+  })
+  .option('-o, --output <outputDir>', 'directory where to put the generated files (defaults to current directory)', parseOutput, process.cwd())
+  .parse(process.argv);
 
-const machineReadablePath = path.resolve(process.cwd(), args[0]);
-const outputPath = path.resolve(process.cwd(), args[1]);
+if (!asyncAPIFile) {
+  console.error(red('> Path to AsyncAPI file not provided.'));
+  program.help(); // This exits the process
+}
 
-console.log('Reading file from', machineReadablePath, '...');
-console.log('Generating project at', outputPath, '...');
+mkdirp(program.output, err => {
+  if (err) return showError(err);
 
-mkdirp(outputPath, err => {
-  if (err) return console.error(err);
-
-  generate(machineReadablePath, outputPath).then(() => {
-    console.log('Done!');
-  }).catch(err => console.error(err));
+  generate(asyncAPIFile, program.output).then(() => {
+    console.log(green('Done! ✨'));
+    console.log(yellow('Check out your shiny new API at ') + magenta(program.output) + yellow('.'));
+  }).catch(showError);
 });
+
+process.on('unhandledRejection', showError);
