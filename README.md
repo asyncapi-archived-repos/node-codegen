@@ -6,7 +6,7 @@
   <em>Use your AsyncAPI definition to generate Node.js<br> ES7-compliant code for your API.</em>
 </p>
 <p align="center">
-  ![](https://travis-ci.org/asyncapi/node-codegen.svg?branch=master)
+  <img src="https://travis-ci.org/asyncapi/node-codegen.svg?branch=master">
 </p>
 <br><br>
 
