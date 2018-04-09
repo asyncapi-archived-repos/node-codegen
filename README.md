@@ -45,6 +45,7 @@ npm install --save asyncapi-node-codegen
 
     -V, --version             output the version number
     -o, --output <outputDir>  directory where to put the generated files (defaults to current directory)
+    -t, --templates <templateDir>  directory where templates are located (defaults to internal nodejs templates)
     -h, --help                output usage information
 ```
 
@@ -58,6 +59,11 @@ anc asyncapi.yaml
 Specify where to put the generated code:
 ```bash
 anc asyncapi.yaml -o ./my-api
+```
+
+Specify where to find the code templates:
+```bash
+anc asyncapi.yaml -t ../my-specific-templates-dir -o ./my-api
 ```
 
 ### As a module in your project
