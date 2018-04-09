@@ -27,6 +27,7 @@ program
     asyncAPIFile = path.resolve(asyncAPIFilePath);
   })
   .option('-o, --output <outputDir>', 'directory where to put the generated files (defaults to current directory)', parseOutput, process.cwd())
+  .option('-t, --templates <templateDir>', 'directory where templates are located (defaults to internal nodejs templates)')
   .parse(process.argv);
 
 if (!asyncAPIFile) {
@@ -37,7 +38,7 @@ if (!asyncAPIFile) {
 mkdirp(program.output, err => {
   if (err) return showError(err);
 
-  generate(asyncAPIFile, program.output).then(() => {
+  generate(asyncAPIFile, program.output, program.templates).then(() => {
     console.log(green('Done! ✨'));
     console.log(yellow('Check out your shiny new API at ') + magenta(program.output) + yellow('.'));
   }).catch(showError);
