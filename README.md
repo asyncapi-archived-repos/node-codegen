@@ -3,7 +3,7 @@
   <strong>AsyncAPI Node.js<br>Code Generator</strong>
 </p>
 <p align="center">
-  <em>Use your AsyncAPI definition to generate Node.js<br> ES7-compliant code for your API.</em>
+  <em>Use your AsyncAPI definition to<br> generate the code for your API.</em>
 </p>
 <p align="center">
   <img src="https://travis-ci.org/asyncapi/node-codegen.svg?branch=master">
@@ -19,7 +19,7 @@ The generated code features:
   * YAML config file
   * Hermes
   * No transpiling
-- Custom templates. Check `--templates` option in the [Usage section](#usage). Kudos to @jantoniucci.
+- Custom templates. Check `--templates` option in the [Usage section](#usage). Kudos to [@jantoniucci](https://github.com/jantoniucci).
 
 ## Install
 
