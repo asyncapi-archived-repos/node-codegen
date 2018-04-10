@@ -13,11 +13,13 @@
 
 The generated code features:
 
-* ES7
-* ESLint
-* YAML config file
-* Hermes
-* No transpiling
+- Default Node.js template, featuring:
+  * ES7
+  * ESLint
+  * YAML config file
+  * Hermes
+  * No transpiling
+- Custom templates. Check `--templates` option in the [Usage section](#usage). Kudos to @jantoniucci.
 
 ## Install
 
@@ -43,10 +45,10 @@ npm install --save asyncapi-node-codegen
 
   Options:
 
-    -V, --version             output the version number
-    -o, --output <outputDir>  directory where to put the generated files (defaults to current directory)
+    -V, --version                  output the version number
+    -o, --output <outputDir>       directory where to put the generated files (defaults to current directory)
     -t, --templates <templateDir>  directory where templates are located (defaults to internal nodejs templates)
-    -h, --help                output usage information
+    -h, --help                     output usage information
 ```
 
 #### Examples
