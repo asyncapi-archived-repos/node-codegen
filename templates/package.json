@@ -9,7 +9,7 @@
     "hermesjs": "1.x",
     "hermesjs-router": "1.x",
 {{#each asyncapi.__schemes as |scheme|}}
-    "hermesjs-{{scheme}}": "latest",
+    "hermesjs-{{scheme}}": "1.x",
 {{/each}}
     "node-yaml-config": "0.0.4"
   }
