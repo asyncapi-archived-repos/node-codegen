@@ -1,6 +1,6 @@
 # Deprecation notice
 
-This package is deprecated and maintanance has been stopped in favor of the Node.js template at github.com/asyncapi/generator.
+This package is deprecated and maintanance has been stopped in favor of the Node.js template at [github.com/asyncapi/generator](https://github.com/asyncapi/generator).
 
 ---
 
