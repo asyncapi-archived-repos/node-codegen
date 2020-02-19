@@ -1,3 +1,9 @@
+# Deprecation notice
+
+This package is deprecated and maintanance has been stopped in favor of the Node.js template at github.com/asyncapi/generator.
+
+---
+
 <p align="center"><img src="logo.png"></p>
 <p align="center">
   <strong>AsyncAPI Node.js<br>Code Generator</strong>
